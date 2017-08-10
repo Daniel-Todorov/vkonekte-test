@@ -16,11 +16,13 @@
 <script type="text/javascript">
     VK.Widgets.Auth('vk_auth', {
         width: 300,
-        onAuth: function () {
-            var url = 'https://oauth.vk.com/authorize?client_id=6142437&scope=email&display=popup&redirect_uri=https://test-vkontakte.herokuapp.com/other.html&response_type=token';
+        onAuth: function (data) {
+            console.log(data);
 
-            window.location.href = url;
-            return;
+            var url = 'https://oauth.vk.com/authorize?client_id=6142437&scope=4&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&response_type=token';
+
+//            window.location.href = url;
+//            return;
 
             var newWin = window.open(url, 'vk-login', 'width=300,height=180')
             newWin.onload = function() {
