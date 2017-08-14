@@ -35,31 +35,42 @@
         return result;
     }, {});
 
-    VK.api('photos.getWallUploadServer', {
-        uid: hash.user_id,
-        access_token: hash.access_token
-    }, function (data) {
-        console.log(data);
-
-        if (data.response) {
-            $.post('/upload/', {  // url на ВАШЕМ сервере, который будет загружать изображение на сервер контакта (upload_url)
-                upload_url: data.response.upload_url,
-                image: image,
-            }, function (json) {
-                VK.api("photos.saveWallPhoto", {
-                    server: json.server,
-                    photo: json.photo,
-                    hash: json.hash,
-                    uid: user_id
-                }, function (data) {
-                    VK.api('wall.post', {
-                        message: message,
-                        attachments: data.response['0'].id
-                    });
-                });
-            }, 'json');
-        }
+    VK.api('wall.post', {
+        owner_id: 6142437,
+        attachments: 'https://wallpaperscraft.com/image/google_search_logo_summer_drawing_26168_602x339.jpg'
     });
+
+//    VK.api('photos.getWallUploadServer', {
+//        uid: hash.user_id,
+//        access_token: hash.access_token
+//    }, function (data) {
+//        // data = {"response":{"upload_url":"https:\/\/pu.vk.com\/c638327\/upload.php?act=do_add&mid=441620294&aid=-14&gid=0&hash=9a8fc32b1d11317a1ef36242a27a2054&rhash=8c27bd3df8b0f5c3b0641ef68168efcd&swfupload=1&api=1&wallphoto=1","aid":-14,"mid":441620294}}
+//
+//        console.log(data);
+//
+//        if (data.response) {
+//            $.get()
+//            $.post(data.upload_url)
+//
+//
+//            $.post('/upload/', {  // url на ВАШЕМ сервере, который будет загружать изображение на сервер контакта (upload_url)
+//                upload_url: data.response.upload_url,
+//                image: image,
+//            }, function (json) {
+//                VK.api("photos.saveWallPhoto", {
+//                    server: json.server,
+//                    photo: json.photo,
+//                    hash: json.hash,
+//                    uid: user_id
+//                }, function (data) {
+//                    VK.api('wall.post', {
+//                        message: message,
+//                        attachments: data.response['0'].id
+//                    });
+//                });
+//            }, 'json');
+//        }
+//    });
 </script>
 </body>
 </html>

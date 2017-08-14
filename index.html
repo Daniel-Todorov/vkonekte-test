@@ -41,8 +41,12 @@ function doStuff() {
     var redirectUrl = base_url + '/other.html?mode=share_track_best_times&' + 'track_configuration_id=' + track_configuration_id + '&period=' + period;
     var accessScope = 8196; // photo + wall
 
-// window.open(redirectUrl + '#access_token=1d0acc347f5176b74a1701eef92df166d5db25abffb6febc19c7ce43915681acaef703ff23b17edc6e599&expires_in=86400&user_id=441620294');
-    window.open('https://oauth.vk.com/authorize?client_id=' + 6142437 + '&scope=' + accessScope + '&display=popup&redirect_uri=' + redirectUrl + '&response_type=token', 'vk-access', 'width=400,height=200');
+//// window.open(redirectUrl + '#access_token=1d0acc347f5176b74a1701eef92df166d5db25abffb6febc19c7ce43915681acaef703ff23b17edc6e599&expires_in=86400&user_id=441620294');
+//    window.open('https://oauth.vk.com/authorize?client_id=' + 6142437 + '&scope=' + accessScope + '&display=popup&redirect_uri=' + redirectUrl + '&response_type=token', 'vk-access', 'width=400,height=200');
+    VK.api('wall.post', {
+        owner_id: 6142437,
+        attachments: 'https://wallpaperscraft.com/image/google_search_logo_summer_drawing_26168_602x339.jpg'
+    });
 }
 
 
